@@ -1,13 +1,16 @@
 import '@/styles/global.css';
 
-import type { AppProps } from 'next/app';
 import { DefaultSeo } from 'next-seo';
 
-const App = ({ Component, pageProps }: AppProps) => {
+import type { AppPropsWithLayout } from '@/types';
+
+const App = ({ Component, pageProps }: AppPropsWithLayout) => {
+  const getLayout = Component.getLayout || ((page) => page);
+
   return (
     <>
       <DefaultSeo />
-      <Component {...pageProps} />
+      {getLayout(<Component {...pageProps} />)}
     </>
   );
 };

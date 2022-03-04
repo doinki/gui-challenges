@@ -15,6 +15,7 @@
       "@/api": ["src/api/index.ts"],
       "@/atoms": ["src/components/atoms/index.ts"],
       "@/constants": ["src/constants/index.ts"],
+      "@/contexts": ["src/contexts/index.ts"],
       "@/hooks": ["src/hooks/index.ts"],
       "@/icons": ["src/components/atoms/icons/index.ts"],
       "@/molecules": ["src/components/molecules/index.ts"],
