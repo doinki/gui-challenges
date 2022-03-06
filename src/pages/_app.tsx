@@ -9,7 +9,11 @@ const App = ({ Component, pageProps }: AppPropsWithLayout) => {
 
   return (
     <>
-      <DefaultSeo />
+      <DefaultSeo
+        defaultTitle="GUI Challenges"
+        description="https://github.com/doinki/gui-challenges"
+        titleTemplate="%s - GUI Challenges"
+      />
       {getLayout(<Component {...pageProps} />)}
     </>
   );

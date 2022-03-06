@@ -1,7 +1,9 @@
-import type { NextPage } from 'next';
 import Link from 'next/link';
+import { NextSeo } from 'next-seo';
 
-const Home: NextPage = () => {
+import type { NextPageWithLayout } from '@/types';
+
+const Home: NextPageWithLayout = () => {
   return (
     <nav className="flex h-screen items-center justify-center text-3xl">
       <ul className="list-disc">
@@ -20,4 +22,10 @@ const Home: NextPage = () => {
   );
 };
 
+Home.getLayout = (page) => (
+  <>
+    <NextSeo title="Home" />
+    {page}
+  </>
+);
 export default Home;

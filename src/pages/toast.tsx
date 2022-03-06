@@ -1,3 +1,5 @@
+import { NextSeo } from 'next-seo';
+
 import { ToastProvider } from '@/contexts';
 import { useToast } from '@/hooks';
 import type { NextPageWithLayout } from '@/types';
@@ -38,6 +40,11 @@ const Toast: NextPageWithLayout = () => {
   );
 };
 
-Toast.getLayout = (page) => <ToastProvider>{page}</ToastProvider>;
+Toast.getLayout = (page) => (
+  <ToastProvider>
+    <NextSeo title="Toast" />
+    {page}
+  </ToastProvider>
+);
 
 export default Toast;
