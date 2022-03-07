@@ -1,5 +1,6 @@
 module.exports = {
   content: ['src/**/*.@(j|t)s?(x)'],
+  darkMode: 'class',
   plugins: [],
   theme: {
     extend: {
