@@ -3,7 +3,7 @@ import NextDocument, { Head, Html, Main, NextScript } from 'next/document';
 
 const dangerouslySetInnerHTML = {
   __html:
-    'var e=document.documentElement.classList;(function(e){var a;try{a=window[e];var r="__storage__";return a.setItem(r,r),a.removeItem(r),!0}catch(e){return e instanceof DOMException&&(22===e.code||1014===e.code||"QuotaExceededError"===e.name||"NS_ERROR_DOM_QUOTA_REACHED"===e.name)&&0!==a?.length}})("localStorage")&&"theme"in localStorage?"dark"===localStorage.theme?e.add("dark"):e.remove("dark"):window.matchMedia("(prefers-color-scheme: dark)").matches?e.add("dark"):e.remove("dark");',
+    'var e=function(){try{return localStorage&&localStorage.theme}catch(e){return!1}}(),r=document.documentElement.classList;e?"dark"===e?r.add("dark"):r.remove("dark"):matchMedia("(prefers-color-scheme: dark)").matches?r.add("dark"):r.remove("dark");',
 };
 
 class Document extends NextDocument {
