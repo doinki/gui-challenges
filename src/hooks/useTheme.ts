@@ -6,10 +6,18 @@ const useTheme = () => {
   useEffect(() => {
     const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
 
-    mediaQuery.addEventListener('change', setTheme);
+    if (mediaQuery.addEventListener) {
+      mediaQuery.addEventListener('change', setTheme);
+    } else {
+      mediaQuery.addListener(setTheme);
+    }
 
     return () => {
-      mediaQuery.removeEventListener('change', setTheme);
+      if (mediaQuery.removeEventListener) {
+        mediaQuery.removeEventListener('change', setTheme);
+      } else {
+        mediaQuery.removeListener(setTheme);
+      }
     };
   }, []);
 };
