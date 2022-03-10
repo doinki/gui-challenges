@@ -4,15 +4,24 @@ import { useCallback } from 'react';
 import type { NextPageWithLayout } from '@/types';
 
 const ThemeSwitch: NextPageWithLayout = () => {
-  const onClick = useCallback(() => {
-    const isDark = document.documentElement.classList.toggle('dark');
-    localStorage.theme = isDark ? 'dark' : 'light';
-  }, []);
+  const onClick = useCallback<React.MouseEventHandler<HTMLButtonElement>>(
+    (e) => {
+      const isDark = document.documentElement.classList.toggle('dark');
+      const theme = isDark ? 'dark' : 'light';
+
+      localStorage.theme = theme;
+      e.currentTarget.ariaLabel = theme;
+    },
+    []
+  );
 
   return (
     <main className="flex h-screen items-center justify-center">
       <button
-        className="webkit-tap-highlight-transparent h-16 w-16 touch-manipulation rounded-full text-gray-600 outline-offset-4 hover:text-gray-900 focus-visible:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 dark:focus-visible:text-gray-300"
+        aria-label="light"
+        aria-live="polite"
+        className="webkit-tap-highlight-transparent h-16 w-16 touch-manipulation rounded-full border-0 text-gray-600 outline-offset-4 hover:text-gray-900 focus-visible:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 dark:focus-visible:text-gray-300"
+        title="Toggles light & dark"
         type="button"
         onClick={onClick}
       >
@@ -26,7 +35,7 @@ const ThemeSwitch: NextPageWithLayout = () => {
           <mask className="origin-center" id="moon-mask">
             <rect fill="white" height="100%" width="100%" x="0" y="0" />
             <circle
-              className="motion-safe:transition-transform motion-safe:duration-[250ms] motion-safe:ease-[cubic-bezier(0,0,0,1)] motion-safe:dark:-translate-x-[7px] motion-safe:dark:delay-[250ms] motion-safe:dark:duration-500"
+              className="motion-safe:transition-transform motion-safe:duration-[250ms] motion-safe:ease-[cubic-bezier(0,0,0,1)] dark:-translate-x-[7px] motion-safe:dark:delay-[250ms] motion-safe:dark:duration-500"
               cx="24"
               cy="10"
               fill="black"
