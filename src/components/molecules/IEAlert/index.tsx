@@ -15,9 +15,9 @@ const IEAlert = () => {
   }
 
   return (
-    <aside className="flex items-center justify-center gap-4 py-4">
+    <aside className="flex items-center justify-center py-4">
       <Logo className="h-8 w-8" />
-      <p className="text-xl">이 브라우저는 더 이상 지원되지 않습니다.</p>
+      <p className="ml-4 text-xl">이 브라우저는 더 이상 지원되지 않습니다.</p>
     </aside>
   );
 };
