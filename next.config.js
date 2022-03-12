@@ -13,7 +13,7 @@ const withTM = require('next-transpile-modules')(['next-seo']);
  */
 const nextConfig = {
   compiler: { removeConsole: process.env.NODE_ENV !== 'development' },
-  eslint: { dirs: ['src'] },
+  eslint: { dirs: ['src'], ignoreDuringBuilds: true },
   poweredByHeader: false,
   reactStrictMode: true,
   swcMinify: true,
